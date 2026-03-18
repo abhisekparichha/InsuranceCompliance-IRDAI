@@ -12,12 +12,16 @@ export const analyzeGuidelines = async (urls: string[]): Promise<{ summary: Know
     1. Provide a high-level overview of the regulatory landscape covered by these documents.
     2. Identify the key themes (e.g., consumer protection, digital transformation, risk management).
     3. Define the regulatory scope (who do these apply to?).
-    4. Extract the key compliance obligations. For each obligation, provide:
-       - Concise title.
-       - Detailed description.
-       - Category.
+    4. Perform an itemized extraction of EVERY numbered clause, section, or distinct requirement from the documents.
+       Each numbered item in the regulation MUST be an individual obligation item.
+       
+       For each item, provide:
+       - Title (e.g., "Clause 1.1: Registration Requirements").
+       - Detailed description of the requirement.
+       - Category (e.g., Claims, Underwriting, Privacy, Disclosure).
        - Priority (High, Medium, or Low).
        - The specific source URL.
+       - Action Item: Specify a concrete action required for compliance (e.g., "Update policy wording", "Submit quarterly report"). If the item is purely informational or no action is required, state "Not applicable".
 
     Format the output as a JSON object with this structure:
     {
@@ -32,7 +36,8 @@ export const analyzeGuidelines = async (urls: string[]): Promise<{ summary: Know
           "description": string,
           "category": string,
           "priority": "High" | "Medium" | "Low",
-          "sourceUrl": string
+          "sourceUrl": string,
+          "actionItem": string
         }
       ]
     }

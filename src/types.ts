@@ -11,6 +11,7 @@ export interface Obligation {
   sourceUrl: string;
   category: string;
   priority: 'High' | 'Medium' | 'Low';
+  actionItem: string;
 }
 
 export interface Message {

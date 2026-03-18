@@ -205,7 +205,7 @@ export default function App() {
                     ) : (
                       <FileText className="w-4 h-4" />
                     )}
-                    Extract Obligations
+                    Extract Itemized List
                   </button>
                 )}
               </section>
@@ -407,8 +407,8 @@ export default function App() {
 
                 <div className="flex items-center justify-between">
                   <div>
-                    <h2 className="text-2xl font-semibold text-zinc-900">Derived Obligations</h2>
-                    <p className="text-zinc-500 text-sm mt-1">Specific compliance requirements identified from the guidelines.</p>
+                    <h2 className="text-2xl font-semibold text-zinc-900">Itemized Obligations</h2>
+                    <p className="text-zinc-500 text-sm mt-1">A line-by-line extraction of every numbered clause and requirement.</p>
                   </div>
                 </div>
 
@@ -439,6 +439,17 @@ export default function App() {
                         </div>
                         <h4 className="font-semibold text-zinc-900 mb-2 group-hover:text-zinc-700 transition-colors">{obl.title}</h4>
                         <p className="text-xs text-zinc-500 leading-relaxed mb-4">{obl.description}</p>
+                        
+                        <div className="mb-4 p-3 bg-zinc-50 rounded-xl border border-zinc-100">
+                          <h5 className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest mb-1.5">Action Item</h5>
+                          <p className={cn(
+                            "text-xs font-medium",
+                            obl.actionItem === 'Not applicable' ? "text-zinc-400 italic" : "text-zinc-900"
+                          )}>
+                            {obl.actionItem}
+                          </p>
+                        </div>
+
                         <div className="pt-4 border-t border-zinc-50 flex items-center justify-between">
                           <div className="flex items-center gap-1.5 text-[10px] text-zinc-400">
                             <ExternalLink className="w-3 h-3" />
