@@ -1,0 +1,5 @@
+{
+  "name": "InsurGuard Compliance",
+  "description": "A query-based compliance tool that parses insurance guidelines from URLs, extracts key obligations, and provides expert recommendations based on the source material.",
+  "requestFramePermissions": []
+}
