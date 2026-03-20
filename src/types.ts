@@ -1,3 +1,5 @@
+export type EntityType = 'insurance_company' | 'corporate_agent' | 'specified_person' | 'general';
+
 export interface KnowledgeBaseSummary {
   overview: string;
   keyThemes: string[];
@@ -25,5 +27,14 @@ export interface GuidelineSource {
   id: string;
   url: string;
   title: string;
+  regulator: 'IRDAI' | 'RBI' | 'Other';
+  category: string;
+  description?: string;
+  effectiveDate?: string;
   status: 'pending' | 'parsed' | 'error';
+}
+
+export interface UserProfile {
+  entityType: EntityType;
+  entityName: string;
 }
